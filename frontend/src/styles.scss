@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    .row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
+    }
+}

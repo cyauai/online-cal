@@ -1,0 +1,74 @@
+<div class="center">
+  <div>
+    <form
+      class="row g-3"
+      #interestForm="ngForm"
+      (ngSubmit)="submit(interestForm.value)"
+    >
+      <div class="col-auto">
+        <label for="principal">本金</label>
+        <input
+          required
+          id="principal"
+          name="principal"
+          type="text"
+          class="form-control"
+          ngModel
+        />
+      </div>
+
+      <div class="col-auto">
+        <label for="rate">年利率</label>
+        <input id="rate" name="rate" type="text" class="form-control" ngModel />
+      </div>
+
+      <div class="col-auto">
+        <label for="year">年份</label>
+        <input id="year" name="year" type="text" class="form-control" ngModel />
+      </div>
+
+      <div class="col-auto">
+        <label for="times">複利頻率 (預設為1)</label>
+        <input
+          id="times"
+          name="times"
+          type="text"
+          class="form-control"
+          ngModel
+        />
+      </div>
+
+      <button class="btn btn-primary col-auto">提交</button>
+    </form>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">本金</th>
+          <th scope="col">年利率</th>
+          <th scope="col">年份</th>
+          <th scope="col">複利頻率</th>
+          <th scope="col">總額</th>
+          <th scope="col">回報</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of data">
+          <td>{{ d.principal }}</td>
+          <td>{{ d.rate }}</td>
+          <td>{{ d.year }}</td>
+          <td>{{ d.times }}</td>
+          <td>{{ d.total.toFixed(2) }}</td>
+          <td>{{ d.profit.toFixed(2) }}</td>
+          <td *ngIf="!d.isSave">
+            <button (click)="save(d.id)" class="btn btn-primary">保存</button>
+          </td>
+          <td *ngIf="d.isSave"></td>
+          <td>
+            <button (click)="remove(d.id)" class="btn btn-primary">移除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

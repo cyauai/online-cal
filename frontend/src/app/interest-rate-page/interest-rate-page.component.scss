@@ -1,0 +1,24 @@
+.row {
+    align-items: end !important;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 20px;
+}
+
+.table {
+    margin-top: 30px;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+th {
+    text-align: center;
+    vertical-align: middle;
+}
